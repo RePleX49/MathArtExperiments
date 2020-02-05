@@ -31,7 +31,8 @@ public class GraphVizualizer : MonoBehaviour
             {
                 Vector3 pos = new Vector3(i, 0, j);
                 GameObject newpoint = Instantiate(dataPrefab, pos, Quaternion.identity);
-                dataPoints[i, j] = newpoint;              
+                //newpoint.transform.parent = this.transform;
+                dataPoints[i, j] = newpoint;            
             }
         }
     }
@@ -52,8 +53,8 @@ public class GraphVizualizer : MonoBehaviour
 
     float HeightFunction(float x, float y)
     {
-        float FunctionA = AmplitudeA * Mathf.Sin(PeriodA * (x + (TimeMultiplierA * Time.time)));
-        float FunctionB = AmplitudeB * Mathf.Cos(PeriodB * (y + (TimeMultiplierB * Time.time)));
+        float FunctionA = AmplitudeA * Mathf.Cos(PeriodA * (x + (TimeMultiplierA * Time.time)));
+        float FunctionB = AmplitudeB * Mathf.Sin(PeriodB * (y + (TimeMultiplierB * Time.time)));
 
         return FunctionA + FunctionB;
     }

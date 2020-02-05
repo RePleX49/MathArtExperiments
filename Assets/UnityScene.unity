@@ -375,11 +375,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataPrefab: {fileID: 8720079342438235977, guid: 106d762c3b4cb1e40b6011852c16e4fb,
     type: 3}
-  dataPointCount: 45
-  TimeMultiplierA: 0.2
-  TimeMultiplierB: 0.2
-  AmplitudeA: 1
-  AmplitudeB: 1
+  dataPointCount: 100
+  TimeMultiplierA: 0.1
+  TimeMultiplierB: 0.1
+  AmplitudeA: 4
+  AmplitudeB: 4
+  PeriodA: 10.4
+  PeriodB: 10.4
 --- !u!4 &1028569483
 Transform:
   m_ObjectHideFlags: 0
@@ -388,7 +390,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028569481}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.8397856, y: 3.5059416, z: -5.4487915}
+  m_LocalPosition: {x: 5.8397856, y: -5.11, z: -5.4487915}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
