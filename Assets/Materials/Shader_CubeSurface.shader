@@ -36,7 +36,7 @@
         {
             // Albedo comes from a texture tinted by color
 			o.Albedo.b = IN.worldPos.y;
-			o.Albedo.g = -IN.worldPos.y;
+			o.Albedo.y = -IN.worldPos.y;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
