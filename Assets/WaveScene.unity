@@ -155,7 +155,7 @@ Camera:
   m_GameObject: {fileID: 149989448}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -196,8 +196,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149989448}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.79, y: 1, z: -25}
+  m_LocalRotation: {x: -0.29253015, y: -0.23136039, z: 0.07315938, w: -0.92495745}
+  m_LocalPosition: {x: -4.5628204, y: 41.701736, z: -37.056576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -375,11 +375,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataPrefab: {fileID: 8720079342438235977, guid: 106d762c3b4cb1e40b6011852c16e4fb,
     type: 3}
-  dataPointCount: 45
+  circleRadius: 20
+  dataPointCount: 70
   TimeMultiplierA: 0.2
   TimeMultiplierB: 0.2
   AmplitudeA: 1
   AmplitudeB: 1
+  PeriodA: 2.1
+  PeriodB: 2.1
 --- !u!4 &1028569483
 Transform:
   m_ObjectHideFlags: 0

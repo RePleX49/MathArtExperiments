@@ -6,6 +6,8 @@ public class GraphVizualizer : MonoBehaviour
 {
     public GameObject dataPrefab;
 
+    public int circleRadius;
+
     [Range(10, 100)]
     public int dataPointCount;
 
@@ -19,11 +21,13 @@ public class GraphVizualizer : MonoBehaviour
     public float PeriodB = 1.0f;
 
     GameObject[,] dataPoints;
+    List<GameObject> circlePoints;
 
     // Start is called before the first frame update
     void Start()
     {
         dataPoints = new GameObject[dataPointCount, dataPointCount];
+        circlePoints = new List<GameObject>();
 
         for (int i = 0; i < dataPointCount; i++)
         {
@@ -34,10 +38,17 @@ public class GraphVizualizer : MonoBehaviour
                 dataPoints[i, j] = newpoint;              
             }
         }
+
+       // GetCircleCutOut();
     }
 
     // Update is called once per frame
     void Update()
+    {
+        RunWave();
+    }
+
+    void RunWave()
     {
         for (int i = 0; i < dataPointCount; i++)
         {
@@ -50,10 +61,38 @@ public class GraphVizualizer : MonoBehaviour
         }
     }
 
+    void GetCircleCutOut()
+    {
+        for (int angle = 0; angle < 360; angle++)
+        {
+            int XPos = (dataPointCount / 2) + (int)(circleRadius * Mathf.Cos(angle * Mathf.Deg2Rad));
+            int YPos = (dataPointCount / 2) + (int)(circleRadius * Mathf.Sin(angle * Mathf.Deg2Rad));
+
+            if (!circlePoints.Contains(dataPoints[XPos, YPos]))
+            {
+                circlePoints.Add(dataPoints[XPos, YPos]);
+            }
+        }
+
+        foreach (GameObject point in circlePoints)
+        {
+            Vector3 newPos = new Vector3(point.transform.position.x, point.transform.position.y + 10.0f, point.transform.position.z);
+            point.transform.position = newPos;
+        }
+    }
+
     float HeightFunction(float x, float y)
     {
         float FunctionA = AmplitudeA * Mathf.Sin(PeriodA * (x + (TimeMultiplierA * Time.time)));
         float FunctionB = AmplitudeB * Mathf.Cos(PeriodB * (y + (TimeMultiplierB * Time.time)));
+
+        return FunctionA + FunctionB;
+    }
+
+    float SecFunction(float x, float y)
+    {
+        float FunctionA = AmplitudeA * (1 / Mathf.Cos(PeriodA * (x + (TimeMultiplierA * Time.time))));
+        float FunctionB = AmplitudeB * (1 / Mathf.Cos(PeriodB * (y + (TimeMultiplierB * Time.time))));
 
         return FunctionA + FunctionB;
     }
