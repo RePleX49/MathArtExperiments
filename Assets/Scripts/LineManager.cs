@@ -6,6 +6,7 @@ public class LineManager : MonoBehaviour
 {
     public GameObject linePrefab;
     public int GridSize = 10;
+    public float stepSize = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +15,12 @@ public class LineManager : MonoBehaviour
         {
             for (int j = 0; j < GridSize; j++)
             {
-                DrawLineLeftOrRight(i, j, 1, 1);
+                DrawLineLeftOrRight(i, j, stepSize, stepSize);
             }
         }
     }
 
-    void DrawLineLeftOrRight(int x, int y, int width, int height)
+    void DrawLineLeftOrRight(int x, int y, float width, float height)
     {
         GameObject newLine = Instantiate(linePrefab, new Vector3(x, y, 0), Quaternion.identity, this.transform);
 
