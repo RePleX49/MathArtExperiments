@@ -61,16 +61,13 @@ public class HexMesh : MonoBehaviour
             );
 
             //change random color every two triangles
-            if(i % 2 == 0)
+            if(i > 1 && i < 6)
             {
-                if (Random.Range(0, 100) > 50)
-                {
-                    TriangleColor = color1;
-                }
-                else
-                {
-                    TriangleColor = color2;
-                }
+                TriangleColor = color2;
+            }
+            else
+            {
+                TriangleColor = color1;
             }
 
             AddTriangleColor(TriangleColor);
