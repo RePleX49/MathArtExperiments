@@ -5,7 +5,6 @@ using UnityEngine;
 public class GraphVizualizer : MonoBehaviour
 {
     public GameObject dataPrefab;
-
     public int circleRadius;
 
     [Range(10, 100)]

@@ -17,7 +17,6 @@ public class ShapeDrawer : MonoBehaviour
         for (int i = 0; i < numofpoints; i++)
         {
             float increment = Mathf.PI * 2f / (float)numofpoints;
-
             lineRend.SetPosition(i, PointOnCircle(increment * (float)i, radius));
         }
     }
