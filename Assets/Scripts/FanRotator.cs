@@ -22,7 +22,7 @@ public class FanRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Point.transform.position = PointOnCircle(speed * Time.time, circleRadius);
+        Point.transform.position = MathUtility.PointOnCircle(speed * Time.time, circleRadius);
         Debug.DrawLine(this.transform.position, Point.transform.position, Color.yellow, LineLifeTime);
 
         float InitialX = this.transform.position.x;
@@ -41,10 +41,5 @@ public class FanRotator : MonoBehaviour
     float SideFunction()
     {
         return AmplitudeX * Mathf.Cos(PeriodX * (TimeMultiplierX * Time.time));
-    }
-
-    Vector3 PointOnCircle(float theta, float radius)
-    {
-        return new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * radius;
     }
 }
