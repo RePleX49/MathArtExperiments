@@ -14,10 +14,20 @@ public class CameraMatrixEditor : MonoBehaviour
 
     Camera cam;
 
+    private float lerpStartTime;
+    public float lerpPeriod;
+
     public float rotation_angle;
     public Vector2 scale = Vector2.one;
     public Vector2 shearing = Vector2.zero;
     public Vector2 translation = Vector2.zero;
+
+    public float rotation_angle_target;
+    public Vector2 scaleTarget = Vector2.one;
+    public Vector2 shearingTarget = Vector2.zero;
+    public Vector2 translationTarget = Vector2.zero;
+
+    private bool isLerping = false; 
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +53,6 @@ public class CameraMatrixEditor : MonoBehaviour
         MatRotate[1, 0] = -Mathf.Sin(rotation_angle);
         MatRotate[1, 1] = MatRotate[0, 0];
         
-
         cam.projectionMatrix = OriginalProjection * MatScale * MatXShear * MatYShear * MatTranslation * MatRotate;
     }
 }
