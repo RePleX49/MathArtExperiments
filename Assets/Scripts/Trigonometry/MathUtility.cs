@@ -19,4 +19,45 @@ public static class MathUtility
 
         return returnPoint;
     }
+
+    public static float GetStdDev(float[] Input)
+    {
+        float variance = GetVariance(Input);
+
+        return Mathf.Sqrt(variance);
+    }
+
+    public static float GetVariance(float[] Input)
+    {
+        float average = GetAverage(Input);
+        float size = Input.Length;
+        float diffSum = 0.0f;
+
+        foreach(float num in Input)
+        {
+            diffSum += ((num - average) * (num - average));
+        }
+
+        return diffSum / size;
+    }
+
+    public static float GetAverage(float[] Input)
+    {
+        float size = Input.Length;
+        float sum = GetSum(Input);
+
+        return (sum / size);
+    }
+
+    public static float GetSum(float[] Input)
+    {
+        float sum = 0;
+
+        foreach(float num in Input)
+        {
+            sum += num;
+        }
+
+        return sum;
+    }
 }
